@@ -29,6 +29,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
           yield Searching(isInitiallySearch: false);
           searchPageIndex++;
         }
+        results.clear();
         List<Product> tempResults = await _searchRepository.searchProduct(
             page: searchPageIndex, query: event.query, isAuthenticated: event.isauth);
         results.addAll(tempResults);
