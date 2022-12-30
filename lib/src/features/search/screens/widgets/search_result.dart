@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:lady_skin/src/shared/widgets/error_snackbar.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:lady_skin/src/features/product/screens/widgets/product_tile.dart';
 import 'package:lady_skin/src/features/product/screens/widgets/product_tile_skeleton.dart';
@@ -19,7 +21,11 @@ class _SearchResultState extends State<SearchResult> {
   final RefreshController _refreshController = RefreshController();
   @override
   void initState() {
-    searchBloc.add(SearchStarted(query: widget.query, isauth: widget.auth == "Authenticated()"? true : false, ));
+    searchBloc.add(SearchStarted(
+      query: widget.query,
+      isauth: widget.auth == "Authenticated()" ||  widget.auth == "Authenticated" ? true : false,
+    ));
+    
     super.initState();
   }
 
@@ -36,7 +42,10 @@ class _SearchResultState extends State<SearchResult> {
       },
       child: SmartRefresher(
         onLoading: () {
-          searchBloc.add(SearchStarted(query: widget.query, isauth: widget.auth == "Authenticated()"? true : false,));
+          searchBloc.add(SearchStarted(
+            query: widget.query,
+            isauth: widget.auth == "Authenticated()" ||  widget.auth == "Authenticated"? true : false,
+          ));
         },
         footer: ClassicFooter(
           loadStyle: LoadStyle.ShowWhenLoading,
@@ -55,6 +64,7 @@ class _SearchResultState extends State<SearchResult> {
                       alignment: Alignment.center,
                       child: CircularProgressIndicator());
                 }
+               
                 return Column(
                   children: [
                     GridView.builder(

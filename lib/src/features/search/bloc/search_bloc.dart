@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lady_skin/src/features/product/models/product.dart';
 import 'package:lady_skin/src/features/search/repositories/search_repository.dart';
@@ -33,7 +34,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
         List<Product> tempResults = await _searchRepository.searchProduct(
             page: searchPageIndex, query: event.query, isAuthenticated: event.isauth);
         results.addAll(tempResults);
-
+        
         yield Searched();
       } catch (e) {
         yield ErrorSearching(error: e.toString());

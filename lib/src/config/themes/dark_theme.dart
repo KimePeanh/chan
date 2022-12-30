@@ -47,6 +47,7 @@ ThemeData darkTheme = ThemeData(
     scaffoldBackgroundColor: Color.fromRGBO(18, 18, 18, 1),
     brightness: Brightness.dark,
     primaryColor: Color(0xFF059445),
+
     backgroundColor: Color.fromRGBO(18, 18, 18, 1),
     cardColor: Colors.grey[900],
     buttonColor: Colors.grey[900],

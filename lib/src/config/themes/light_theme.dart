@@ -48,6 +48,7 @@ ThemeData lightTheme = ThemeData(
     scaffoldBackgroundColor: Colors.grey[50],
     brightness: Brightness.light,
     primaryColor: Color(0xFF059445),
+   
 
     // primaryColor: Color.fromRGBO(135, 131, 138, 1),
     backgroundColor: Colors.white,

@@ -11,7 +11,7 @@ abstract class SearchEvent extends Equatable {
 class SearchStarted extends SearchEvent {
   final String query;
   final bool isauth;
-
+  
   SearchStarted({required this.query, required this.isauth});
 }
 
